@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: silver
+    database: HEALTHCARE_DB
+    schema: SILVER
+    tables:
+      - name: silver_patient_vitals
+        description: "Flattened patient vitals, refreshed by a Dynamic Table with 1-minute target lag."
+      - name: silver_claims
+        description: "Flattened insurance claims, parsed from bronze_claims_raw."
+      - name: silver_policies
+        description: "Flattened policy records."

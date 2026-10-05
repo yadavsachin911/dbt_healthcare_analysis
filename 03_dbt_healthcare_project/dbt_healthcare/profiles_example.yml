@@ -1,0 +1,17 @@
+# EXAMPLE ONLY — do not commit a real profiles.yml to GitHub.
+# Normally lives at ~/.dbt/profiles.yml on your machine, or is built from
+# GitHub Actions secrets in CI (see .github/workflows/dbt_ci.yml).
+
+healthcare_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: TRANSFORMER_ROLE
+      database: HEALTHCARE_DB
+      warehouse: COE_ANALYTICS_WH
+      schema: GOLD
+      threads: 4

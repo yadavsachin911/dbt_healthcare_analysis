@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fact_claims
+    description: "One row per insurance claim, incrementally loaded from Silver."
+    columns:
+      - name: claim_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: claim_status
+        tests:
+          - accepted_values:
+              values: ['SUBMITTED', 'APPROVED', 'DENIED', 'PAID']
+      - name: claim_amount
+        tests:
+          - not_null
+
+  - name: gold_claim_insights
+    description: "Cortex AI-generated summaries and sentiment scores per claim."
+    columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
