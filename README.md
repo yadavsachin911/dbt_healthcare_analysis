@@ -1,2 +1,2 @@
 # dbt_healthcare_analysis
-DBT Health Care Analysis Project
+DBT Health Care Analysis Project - Snowflake
